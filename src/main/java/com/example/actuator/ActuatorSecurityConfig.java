@@ -30,6 +30,10 @@ public class ActuatorSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        System.out.println("--------------");
+        http.formLogin().and().authorizeRequests().antMatchers("/actuator","/actuator/*").authenticated();
+
+        /*
         http
                 .authorizeRequests()
                 .requestMatchers(EndpointRequest.to(ShutdownEndpoint.class))
@@ -43,5 +47,8 @@ public class ActuatorSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**")
                 .authenticated()
                 .and()
-                .httpBasic();    }
+                .httpBasic();
+                */
+                }
+
 }
